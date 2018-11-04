@@ -1,0 +1,71 @@
+
+.container{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header{
+}
+
+.App-header > h1{
+
+  width: 120px;
+  font-size: 60px;
+  font-weight: 10px;
+  background: linear-gradient(to left , #ad938e , transparent);
+  border: 0.1px solid #ad938e;
+  border-radius: 45%;
+}
+
+
+.search{
+  display: flex;
+  justify-content: center;
+}
+
+.movieInfo{
+  padding:  0 30px;
+}
+
+.displayInfo{
+  display: flex;
+  justify-content: center;
+  padding: 50px 0 ;
+}
+
+.searchTitle{
+  border: 1px solid #00B4CC;
+  font-size: 35px;
+  height: 50px;
+  border-radius: 10px;
+  width: 50vw;
+  color: #9DBFAF;
+}
+.searchTitle:focus{
+  color : #00B4CC;
+}
+.button{
+  position:absolute;
+  height: 50px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.notFound{
+  
+}
+.info{
+
+}
+
