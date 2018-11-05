@@ -1,4 +1,6 @@
-import React from 'react';
+import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './../App.css'
 
 class Movie extends React.Component{
 	constructor(props) {
@@ -44,54 +46,60 @@ class Movie extends React.Component{
 		this.fetchMovie(data);
 	}
 
+
 	render(){
 		return (
-				<div className="wrapper">
-					<div className="search">
-						<form onSubmit={this.handleSubmit}>
-							
-							<input 
-								className = 'searchTitle'
-								placeholder = 'Enter movie title'
-								type = 'text'
-								autoComplete = 'off'
-								value= {this.state.movie}
-								onChange = {this.handleChange}
-							/>
-							<button
-								className = 'button'
-								type = 'submit'
-								disabled = {!this.state.movie}>
-								<i className="fa fa-search"></i>
-							</button>
-						</form>
+			
+				<div className="container">
+					<div className="row justify-content-center">
+							<form onSubmit={this.handleSubmit} className="form">
+								<div className="form-group " >
+									<div className="input-group input-group-lg">
+										<input 
+											className = 'form-control test'
+											placeholder = 'Enter movie title'
+											type = 'text'
+											autoComplete = 'off'
+											value= {this.state.movie}
+											onChange = {this.handleChange}
+										/>
+										{/* <div className="input-group-append">
+											<span className="input-group-text" id="basic-addon2"><i className="fas fa-search"></i></span>
+										</div> */}
+									</div>
+								</div>
+							</form>
 					</div>
 
 					{ this.state.movieInfo.Title &&
-						<div className="displayInfo">
-							<div className="posterImg">
-								<img src={this.state.movieInfo.Poster} alt ={this.state.movieInfo.Title}/>
+						<div className='search'>
+							<div className="row justify-content-center">
+    							<div className="col-lg-4 col-md-4 col-sm-12">
+									<img src={this.state.movieInfo.Poster} alt ={this.state.movieInfo.Title} className="img-fluid rounded mx-auto d-block"/>
+								</div>
+								<div className="col-lg-8 col-md-8 col-sm-12">
+									<ul className="list-group list-group-flush">
+										<li className="list-group-item" ><h1>Title : <span className="info">{this.state.movieInfo.Title}</span></h1></li>
+										
+										<li className="list-group-item"><h1><b>Actors : </b> {this.state.movieInfo.Actors}</h1></li>
+										
+										<li className="list-group-item"><h1><b>Director : </b> {this.state.movieInfo.Director}</h1></li>
+										
+										<li className="list-group-item"><h1><b>Plot : </b> {this.state.movieInfo.Plot}</h1></li>
+										
+										<li className="list-group-item"><h1><b>Genre : </b> {this.state.movieInfo.Genre}</h1></li>
+										
+										<li className="list-group-item"><h1><b>Awards : </b> {this.state.movieInfo.Awards}</h1></li>
+									</ul> 
+								</div> 
 							</div>
-							<div className="movieInfo">
-								<ul>
-									<li><h1><b>Title : </b> <span className="info">{this.state.movieInfo.Title}</span></h1></li>
-									
-									<li><h1><b>Actors : </b> {this.state.movieInfo.Actors}</h1></li>
-									
-									<li><h1><b>Director : </b> {this.state.movieInfo.Director}</h1></li>
-									
-									<li><h1><b>Plot : </b> {this.state.movieInfo.Plot}</h1></li>
-									
-									<li><h1><b>Genre : </b> {this.state.movieInfo.Genre}</h1></li>
-									
-									<li><h1><b>Awards : </b> {this.state.movieInfo.Awards}</h1></li>
-								</ul> 
-							</div> 
-						</div> 
+						</div>
 					}
 
-					{ this.state.found &&
-						<div className="notFound">{this.state.error}</div>}
+					{ this.state.error && 
+						<div class="alert alert-warning ">
+							<strong>{this.state.error}</strong> 
+						</div>}
 				</div> 
 				
 			);
